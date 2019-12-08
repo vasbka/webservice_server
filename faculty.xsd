@@ -1,0 +1,93 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<xsd:schema
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://nure.ua/honcharenkoilchishen/faculty"
+            xmlns:fc="http://nure.ua/honcharenkoilchishen/faculty"
+            elementFormDefault="qualified">
+  <xsd:element name="faculties">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="faculty" type="fc:Faculty" maxOccurs="unbounded" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>    
+  </xsd:element>
+  <xsd:complexType name="Faculty">
+    <xsd:complexContent>
+      <xsd:extension base="fc:Entity">    
+        <xsd:sequence>
+          <xsd:element name="title" type="fc:title" minOccurs="1" maxOccurs="1"/>
+          <xsd:element name="shortTitle" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+          <xsd:element name="placeCount" type="fc:placeCount" minOccurs="1" maxOccurs="1"/>          
+          <xsd:element name="budgetPlaceCount" type="fc:budgetPlaceCount" minOccurs="0" maxOccurs="1"/>          
+          <xsd:element name="facultyBranch" type="fc:facultyBranch"/>
+          <xsd:element name="facultyRoomNumber">
+            <xsd:complexType>
+              <xsd:choice>
+                <xsd:element name="yes" type="xsd:string" />
+                <xsd:element name="no" type="xsd:string" fixed=""/>
+              </xsd:choice>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="additional" minOccurs="0">
+            <xsd:complexType>
+              <xsd:all>
+                <xsd:element name="bacheloerCount" minOccurs="0">
+                  <xsd:complexType>
+                    <xsd:simpleContent>
+                      <xsd:extension base="xsd:integer">
+                      	<xsd:attribute name="year" use="required">
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:integer"> 
+                              <xsd:minInclusive value="2010"/>
+                              <xsd:maxExclusive value="2030"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:attribute>
+                      </xsd:extension>
+                    </xsd:simpleContent>
+                  </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="employedStudents" type="xsd:integer"  minOccurs="0"/>
+              </xsd:all>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Entity" abstract="true">
+    <xsd:attribute name="id" type="fc:EntityId" use="required" />
+  </xsd:complexType>  
+  <xsd:simpleType name="EntityId">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="-1" />
+      <xsd:maxExclusive value="99999999" />
+      <xsd:pattern value="[0-9]*" />
+    </xsd:restriction>
+  </xsd:simpleType> 
+  <xsd:simpleType name="placeCount">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="-1" />
+      <xsd:maxExclusive value="999" />
+      <xsd:pattern value="[0-9]{0,3}" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="budgetPlaceCount">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0" />
+      <xsd:totalDigits value="3" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="title">    
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="5" />
+      <xsd:maxLength value="60" />      
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="facultyBranch">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Mathmetical"/>
+      <xsd:enumeration value="Philology"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="faculties">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="faculty" type="Faculty" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="Entity" abstract="true">
+    <xs:sequence/>
+    <xs:attribute name="id" type="xs:int" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="Faculty">
+    <xs:complexContent>
+      <xs:extension base="Entity">
+        <xs:sequence>
+          <xs:element name="title" type="xs:string"/>
+          <xs:element name="shortTitle" type="xs:string" minOccurs="0"/>
+          <xs:element name="placeCount" type="xs:int"/>
+          <xs:element name="budgetPlaceCount" type="xs:int" minOccurs="0"/>
+          <xs:element name="facultyBranch" type="xs:string"/>
+          <xs:element name="facultyRoomNumber">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="yes" type="xs:string" minOccurs="0"/>
+                <xs:element name="no" type="xs:string" minOccurs="0"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="additional" minOccurs="0">
+            <xs:complexType>
+              <xs:all>
+                <xs:element name="bacheloerCount" minOccurs="0">
+                  <xs:complexType>
+                    <xs:simpleContent>
+                      <xs:extension base="xs:integer">
+                        <xs:attribute name="year" type="xs:int" use="required"/>
+                      </xs:extension>
+                    </xs:simpleContent>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="employedStudents" type="xs:integer" minOccurs="0"/>
+              </xs:all>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:simpleType name="facultyBranch">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Mathmetical"/>
+      <xs:enumeration value="Philology"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

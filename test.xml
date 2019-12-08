@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fc:faculties xmlns:fc="http://nure.ua/honcharenkoilchishen/faculty"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <fc:faculty id="0">
+        <fc:title/>
+    </fc:faculty>
+</fc:faculties>
