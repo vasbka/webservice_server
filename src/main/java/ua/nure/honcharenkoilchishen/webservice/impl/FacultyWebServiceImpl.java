@@ -7,13 +7,16 @@ import ua.nure.honcharenkoilchishen.parser.JAXBparser;
 import ua.nure.honcharenkoilchishen.webservice.FacultyWebService;
 
 import javax.jws.WebService;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 
 
-@WebService(endpointInterface = "ua.nure.honcharenkoilchishen.webservice.FacultyWebService")
+@WebService(endpointInterface = "ua.nure.honcharenkoilchishen.webservice.FacultyWebService",
+targetNamespace = "http://nure.ua/honcharenkoilchishen/service", portName = "FacultyPort",
+serviceName = "Faculties")
 public class FacultyWebServiceImpl implements FacultyWebService {
     private static DOMParser domParser;
     private static JAXBparser jaxBparser;
@@ -77,6 +80,11 @@ public class FacultyWebServiceImpl implements FacultyWebService {
             jaxBparser.marshall(faculties);
         }
         return deletedFaculty;
+    }
+
+    @Override
+    public Faculty[] getFaculties() throws Exception {
+        return (Faculty[]) jaxBparser.unmarshall().getFaculty().stream().toArray();
     }
 
     public void updateFaculty(Faculty targetFaculty, Faculty facultyForUpdate) {
