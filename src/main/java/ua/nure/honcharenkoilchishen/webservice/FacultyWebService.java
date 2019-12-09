@@ -13,4 +13,16 @@ public interface FacultyWebService {
     @WebMethod
     Faculty geFacultyByName(String title) throws Exception;
 
+    @WebMethod
+    Faculty createFaculty(Faculty faculty) throws Exception;
+
+    @WebMethod
+    Boolean updateFacultyTitle(Faculty faculty) throws Exception;
+
+    @WebMethod
+    Faculty getFacultyById(Integer facultyId) throws Exception;
+
+    @WebMethod
+    Faculty deleteFaculty(Integer facultyId) throws Exception;
+
 }

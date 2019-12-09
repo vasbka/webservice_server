@@ -1,17 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<faculties xmlns="http://nure.ua/honcharenkoilchishen/faculty">
-    <faculty id="15">
-        <title>hello</title>
-        <shortTitle>short title</shortTitle>
-        <placeCount>15</placeCount>
-        <budgetPlaceCount>10</budgetPlaceCount>
-        <facultyBranch>Mathmetical</facultyBranch>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<faculties>
+    <faculty id="1">
+        <title>First faculty</title>
+        <shortTitle>short</shortTitle>
+        <placeCount>25</placeCount>
+        <budgetPlaceCount>15</budgetPlaceCount>
+        <facultyBranch>Philology</facultyBranch>
         <facultyRoomNumber>
             <yes>412</yes>
         </facultyRoomNumber>
         <additional>
-            <bacheloerCount year="2011">15</bacheloerCount>
-            <employedStudents>20</employedStudents>
+            <bacheloerCount year="2015">15</bacheloerCount>
         </additional>
     </faculty>
 </faculties>
