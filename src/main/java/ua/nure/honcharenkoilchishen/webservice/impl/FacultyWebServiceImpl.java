@@ -21,7 +21,7 @@ public class FacultyWebServiceImpl implements FacultyWebService {
 
     @Override
     public Faculty geFacultyByName(String title) throws Exception {
-        Faculties parse = domParser.parse(new FileInputStream("faculty.xml"));
+        Faculties parse = domParser.unmarshall();
         List<Faculty> collect = parse.getFaculty().stream()
                 .filter(faculty -> faculty.getTitle().equals(title))
                 .collect(Collectors.toList());

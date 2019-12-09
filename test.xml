@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<fc:faculties xmlns:fc="http://nure.ua/honcharenkoilchishen/faculty"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <fc:faculty id="0">
-        <fc:title/>
-    </fc:faculty>
-</fc:faculties>
+<faculties xmlns="http://nure.ua/honcharenkoilchishen/faculty">
+    <faculty id="15">
+        <title>hello</title>
+        <shortTitle>short title</shortTitle>
+        <placeCount>15</placeCount>
+        <budgetPlaceCount>10</budgetPlaceCount>
+        <facultyBranch>Mathmetical</facultyBranch>
+        <facultyRoomNumber>
+            <yes>412</yes>
+        </facultyRoomNumber>
+        <additional>
+            <bacheloerCount year="2011">15</bacheloerCount>
+            <employedStudents>20</employedStudents>
+        </additional>
+    </faculty>
+</faculties>
