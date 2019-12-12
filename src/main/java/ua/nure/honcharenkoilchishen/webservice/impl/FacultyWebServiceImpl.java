@@ -28,9 +28,9 @@ public class FacultyWebServiceImpl implements FacultyWebService {
 
     @Override
     public Faculty geFacultyByName(String title) throws Exception {
-        Faculties parse = domParser.unmarshall();
+        Faculties parse = jaxBparser.unmarshall();
         Optional<Faculty> first = parse.getFaculty().stream()
-                .filter(faculty -> !faculty.getTitle().equals(title)).findFirst();
+                .filter(faculty -> faculty.getTitle().equals(title)).findFirst();
         return first.orElseGet(Faculty::new);
     }
 
@@ -84,7 +84,7 @@ public class FacultyWebServiceImpl implements FacultyWebService {
 
     @Override
     public Faculty[] getFaculties() throws Exception {
-        return (Faculty[]) jaxBparser.unmarshall().getFaculty().stream().toArray();
+        return jaxBparser.unmarshall().getFaculty().toArray(new Faculty[0]);
     }
 
     public void updateFaculty(Faculty targetFaculty, Faculty facultyForUpdate) {

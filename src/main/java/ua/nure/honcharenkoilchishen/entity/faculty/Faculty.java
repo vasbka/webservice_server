@@ -107,6 +107,10 @@ public class Faculty
     protected Faculty.FacultyRoomNumber facultyRoomNumber;
     protected Faculty.Additional additional;
 
+    public Faculty() {
+
+    }
+
     /**
      * Gets the value of the title property.
      * 

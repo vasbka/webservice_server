@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <faculties>
-    <faculty id="1">
-        <title>First faculty</title>
-        <shortTitle>short</shortTitle>
-        <placeCount>25</placeCount>
-        <budgetPlaceCount>15</budgetPlaceCount>
+    <faculty id="0">
+        <title>test</title>
+        <shortTitle>test</shortTitle>
+        <placeCount>3</placeCount>
+        <budgetPlaceCount>2</budgetPlaceCount>
         <facultyBranch>Philology</facultyBranch>
         <facultyRoomNumber>
-            <yes>412</yes>
+            <no></no>
         </facultyRoomNumber>
         <additional>
-            <bacheloerCount year="2015">15</bacheloerCount>
+            <bacheloerCount year="1">1</bacheloerCount>
+            <employedStudents>1</employedStudents>
+        </additional>
+    </faculty>
+    <faculty id="0">
+        <title>q</title>
+        <shortTitle>q</shortTitle>
+        <placeCount>2</placeCount>
+        <budgetPlaceCount>2</budgetPlaceCount>
+        <facultyBranch>Philology</facultyBranch>
+        <facultyRoomNumber>
+            <no></no>
+        </facultyRoomNumber>
+        <additional>
+            <bacheloerCount year="2">2</bacheloerCount>
+            <employedStudents>2</employedStudents>
         </additional>
     </faculty>
 </faculties>
